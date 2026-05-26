@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ko Yunseo | Portfolio</title>
+    <style>
+        :root {
+            --primary: #d2c5ff; /* 연보라 */
+            --secondary: #f8e494; /* 연노랑 */
+            --accent: #aefcff; /* 연하늘 */
+            --dark: #2d2d30;
+            --light: #fdfbf7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fdfbf7 0%, #f3efff 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            filter: blur(120px);
+            border-radius: 50%;
+            top: 20%;
+            left: 15%;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: var(--accent);
+            filter: blur(100px);
+            border-radius: 50%;
+            bottom: 20%;
+            right: 15%;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(210, 197, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--secondary);
+            z-index: -1;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: var(--dark);
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .card li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Projects */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .project-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            background: #f0ecff;
+            color: #7a5fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            width: fit-content;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-info h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f7;
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid rgba(0,0,0,0.03);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .project-item {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">YUNSEO.LOG</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <span class="badge">Digital Marketing Engineering</span>
+            <h1>데이터로 기획하고<br><span style="box-shadow: inset 0 -20px 0 var(--accent);">디자인으로 연결하는</span><br>고윤서입니다.</h1>
+            <p>인하공업전문대학 디지털마케팅공학과</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="card">
+                    <h3>Experience & Awards</h3>
+                    <ul>
+                        <li><strong>디지털 마케팅 영상 공모전 [대상] 수상</strong></li>
+                        <li>서부경찰서 협업 가정폭력 예방 캠페인 영상 제작</li>
+                        <li>이감(Yigam) 산학연계 브랜드 마케팅 프로젝트 진행</li>
+                        <li>교내 기숙사 자치회 근로학생 근무</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Skills & Focus</h3>
+                    <ul>
+                        <li>Performance Marketing & UX/UI Design</li>
+                        <li>Short-form Video Scripting & Directing</li>
+                        <li>Web Development (준비 중)</li>
+                        <li>컴퓨터활용능력 1급 (준비 중)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-list">
+                
+                <div class="project-item">
+                    <div class="project-img">💡 CAMPAIGN</div>
+                    <div class="project-info">
+                        <span class="project-tag">서부경찰서 협업</span>
+                        <h4>가정폭력 예방 공익 캠페인</h4>
+                        <p>직관적인 비주얼 스토리텔링과 탄탄한 스토리보드를 바탕으로 선한 영향력을 전하는 공익 광고 영상 제작 프로젝트.</p>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-img">✍️ BRANDING</div>
+                    <div class="project-info">
+                        <span class="project-tag">산학 연계</span>
+                        <h4>'이감(Yigam)' 브랜드 마케팅</h4>
+                        <p>타겟 분석을 기반으로 한 숏폼 비디오 스크립트 설계 및 참여형 인터랙티브 퀴즈 콘텐츠 기획 캠페인.</p>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-img">🎨 UX/UI</div>
+                    <div class="project-info">
+                        <span class="project-tag">개인 프로젝트</span>
+                        <h4>뮤지컬 테렉터(Musical Tracker) 앱 분석</h4>
+                        <p>뮤지컬 및 스포츠 관람 관객들의 니즈를 분석하여 데이터 아카이빙과 커뮤니티 기능을 결합한 UX/UI 개선 모델 연구.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="text-align: center; padding: 2rem 0;">
+            <h2 class="section-title">Contact</h2>
+            <p style="margin-top: 1rem; color: #555;">새로운 제안과 협업은 언제나 환영합니다!</p>
+            <p style="font-weight: 600; margin-top: 0.5rem; color: var(--dark);">GitHub: @your-github-id</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ko Yunseo. Powered by GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
