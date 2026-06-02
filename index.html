@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PBJRHL6P');</script>
-    <!-- End Google Tag Manager -->
-
+    })(window,document,'script','dataLayer','GTM-M8973L5W');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- [SEO] 검색최적화 타이틀 및 메타 디스크립션 -->
     <title>기획자 고윤서 | 콘텐츠 제작부터 마케팅 자동화까지</title>
     <meta name="description" content="사진·영상 편집 기술과 데이터 중심 마케팅, 문서 자동화 역량을 겸비한 기획자 고윤서입니다. 기획부터 효율화까지 책임지는 포트폴리오를 확인해 보세요.">
 
-    <!-- [SEO] 오픈그래프(OG) 메타 태그 (카카오톡, SNS 링크 공유용) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="기획자 고윤서 | 콘텐츠 제작부터 마케팅 자동화까지">
     <meta property="og:description" content="사진·영상 편집 기술과 데이터 중심 마케팅, 문서 자동화 역량을 겸비한 기획자 고윤서입니다. 기획부터 효율화까지 책임지는 포트폴리오를 확인해 보세요.">
@@ -24,13 +19,11 @@
     <meta property="og:image" content="https://[본인의포트폴리오사이트주소].com/images/og-thumbnail.jpg">
     <meta property="og:site_name" content="고윤서 포트폴리오">
 
-    <!-- [SEO] 트위터/X 카드 메타 태그 -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="기획자 고윤서 | 콘텐츠 제작부터 마케팅 자동화까지">
     <meta name="twitter:description" content="사진·영상 편집 기술과 데이터 중심 마케팅, 문서 자동화 역량을 겸비한 기획자 고윤서입니다. 기획부터 효율화까지 책임지는 포트폴리오를 확인해 보세요.">
     <meta name="twitter:image" content="https://[본인의포트폴리오사이트주소].com/images/og-thumbnail.jpg">
 
-    <!-- [SEO] 구글 검색봇을 위한 JSON-LD 스키마 마크업 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -282,6 +275,13 @@
             transform: translateY(-5px);
         }
 
+        /* 프로젝트 왼쪽 이미지/사진 컨테이너 영역 */
+        .project-media-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
         .project-img {
             background: linear-gradient(45deg, var(--primary), var(--accent));
             min-height: 200px;
@@ -290,6 +290,26 @@
             align-items: center;
             color: white;
             font-weight: bold;
+            flex-grow: 1;
+        }
+
+        /* 사진 아래 추가된 인하공전 이동 배너 스타일 */
+        .inhatc-banner {
+            display: block;
+            text-align: center;
+            background-color: #f1eeff;
+            color: #5b46b0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.6rem 1rem;
+            border-top: 1px solid rgba(0,0,0,0.03);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .inhatc-banner:hover {
+            background-color: var(--primary);
+            color: #ffffff;
         }
 
         .project-info {
@@ -342,11 +362,8 @@
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBJRHL6P"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8973L5W"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <header>
         <div class="logo">YUNSEO.LOG</div>
         <nav>
@@ -365,7 +382,6 @@
     </div>
 
     <div class="container">
-        <!-- About Section -->
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <div class="about-grid">
@@ -390,13 +406,15 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects">
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-list">
                 
                 <div class="project-item">
-                    <div class="project-img">💡 CAMPAIGN</div>
+                    <div class="project-media-container">
+                        <div class="project-img">💡 CAMPAIGN</div>
+                        <a href="https://www.inhatc.ac.kr" target="_blank" class="inhatc-banner">인하공업전문대학 바로가기 ↗</a>
+                    </div>
                     <div class="project-info">
                         <span class="project-tag">서부경찰서 협업</span>
                         <h4>가정폭력 예방 공익 캠페인</h4>
@@ -405,7 +423,10 @@
                 </div>
 
                 <div class="project-item">
-                    <div class="project-img">✍️ BRANDING</div>
+                    <div class="project-media-container">
+                        <div class="project-img">✍️ BRANDING</div>
+                        <a href="https://www.inhatc.ac.kr" target="_blank" class="inhatc-banner">인하공업전문대학 바로가기 ↗</a>
+                    </div>
                     <div class="project-info">
                         <span class="project-tag">산학 연계</span>
                         <h4>'이감(Yigam)' 브랜드 마케팅</h4>
@@ -414,7 +435,10 @@
                 </div>
 
                 <div class="project-item">
-                    <div class="project-img">🎨 UX/UI</div>
+                    <div class="project-media-container">
+                        <div class="project-img">🎨 UX/UI</div>
+                        <a href="https://www.inhatc.ac.kr" target="_blank" class="inhatc-banner">인하공업전문대학 바로가기 ↗</a>
+                    </div>
                     <div class="project-info">
                         <span class="project-tag">개인 프로젝트</span>
                         <h4>뮤지컬 테렉터(Musical Tracker) 앱 분석</h4>
@@ -425,7 +449,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" style="text-align: center; padding: 2rem 0;">
             <h2 class="section-title">Contact</h2>
             <p style="margin-top: 1rem; color: #555;">새로운 제안과 협업은 언제나 환영합니다!</p>
